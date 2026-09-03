@@ -16,7 +16,7 @@ export function CharacterPortraitCard({
   return (
     <Link
       href={`/characters/${character.id}`}
-      className="group animate-rise-in flex flex-col overflow-hidden rounded-xl border bg-card/60 transition-transform hover:-translate-y-1"
+      className="group animate-rise-in flex flex-col overflow-hidden border bg-card/40 transition-transform duration-300 hover:-translate-y-1"
       style={{
         animationDelay: `${Math.min(index, 10) * 0.05}s`,
         borderColor,
@@ -29,29 +29,29 @@ export function CharacterPortraitCard({
             alt={character.name}
             fill
             unoptimized
-            className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+            className="object-cover opacity-90 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:opacity-100"
           />
         ) : (
           <div className="flex h-full items-center justify-center font-serif text-4xl text-muted-foreground">
             {character.name.charAt(0)}
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent transition-opacity group-hover:opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent transition-opacity group-hover:opacity-80" />
         {!character.alive && (
-          <span className="absolute right-2 top-2 rounded-full bg-black/60 px-2 py-0.5 text-[10px] uppercase tracking-wide text-white/80">
+          <span className="absolute right-2 top-2 border border-white/20 bg-black/50 px-2 py-0.5 text-[10px] uppercase tracking-wide text-white/80">
             Погиб
           </span>
         )}
       </div>
       <div className="flex flex-1 flex-col gap-1 p-3">
-        <h3 className="truncate font-serif text-sm text-foreground sm:text-base">
+        <h3 className="truncate font-serif text-sm font-light tracking-wide text-foreground sm:text-base">
           {character.name}
         </h3>
-        <p className="text-xs text-muted-foreground">
+        <p className="text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
           {house ? house.name : character.house || "Дом неизвестен"}
         </p>
         {character.patronus && (
-          <p className="mt-auto truncate text-xs text-muted-foreground/80">
+          <p className="mt-auto truncate text-xs text-muted-foreground/70">
             Патронус: {character.patronus}
           </p>
         )}

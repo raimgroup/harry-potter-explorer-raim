@@ -1,19 +1,19 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Cinzel_Decorative, Crimson_Text } from 'next/font/google'
+import { Cormorant, Cormorant_Garamond } from 'next/font/google'
 import { HouseProvider } from '@/contexts/house-provider'
 import { SiteHeader } from '@/components/site-header'
 import './globals.css'
 
-const cinzelDecorative = Cinzel_Decorative({
-  subsets: ['latin'],
-  weight: ['400', '700', '900'],
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ['latin', 'cyrillic'],
+  weight: ['300', '400', '500', '600'],
   variable: '--font-heading',
 })
 
-const crimsonText = Crimson_Text({
-  subsets: ['latin'],
-  weight: ['400', '600', '700'],
+const cormorant = Cormorant({
+  subsets: ['latin', 'cyrillic'],
+  weight: ['300', '400', '500', '600'],
   style: ['normal', 'italic'],
   variable: '--font-body',
 })
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   colorScheme: 'dark',
-  themeColor: '#12100b',
+  themeColor: '#0a0d14',
 }
 
 export default function RootLayout({
@@ -53,8 +53,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ru" className={`dark bg-background ${cinzelDecorative.variable} ${crimsonText.variable}`}>
+    <html lang="ru" className={`dark bg-background ${cormorantGaramond.variable} ${cormorant.variable}`}>
       <body className="min-h-screen bg-background font-sans antialiased">
+        <div className="fixed inset-0 -z-20 overflow-hidden" aria-hidden>
+          <div className="absolute inset-0 fog-layer-1" />
+          <div className="absolute inset-0 fog-layer-2" />
+          <div className="absolute inset-0 vignette-overlay" />
+        </div>
         <HouseProvider>
           <SiteHeader />
           <main>{children}</main>

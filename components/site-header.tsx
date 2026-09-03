@@ -19,30 +19,23 @@ export function SiteHeader() {
   const { house } = useHouse()
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-border/40 bg-background/70 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link href="/" className="flex items-center gap-2.5 shrink-0">
           <span
-            className="flex size-9 items-center justify-center rounded-full border border-accent/50 bg-accent/15 text-accent-foreground"
+            className="flex size-8 items-center justify-center border border-border/50 text-muted-foreground"
             aria-hidden
           >
-            <svg viewBox="0 0 24 24" fill="none" className="size-5 text-accent-foreground">
+            <svg viewBox="0 0 24 24" fill="none" className="size-4">
               <path
                 d="M12 2 3 7v6c0 5 4 8 9 9 5-1 9-4 9-9V7l-9-5Z"
                 stroke="currentColor"
-                strokeWidth="1.4"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M9 12.5l2 2 4-4.5"
-                stroke="currentColor"
-                strokeWidth="1.4"
-                strokeLinecap="round"
+                strokeWidth="1.2"
                 strokeLinejoin="round"
               />
             </svg>
           </span>
-          <span className="font-serif text-lg tracking-wide text-foreground sm:text-xl">
+          <span className="font-serif text-base font-light uppercase tracking-[0.25em] text-foreground sm:text-lg">
             HP Explorer
           </span>
         </Link>
@@ -55,10 +48,10 @@ export function SiteHeader() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                  "px-3 py-2 text-xs uppercase tracking-[0.15em] transition-colors",
                   active
-                    ? "bg-accent/20 text-accent-foreground"
-                    : "text-muted-foreground hover:bg-secondary hover:text-foreground",
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground",
                 )}
               >
                 {link.label}
@@ -71,29 +64,29 @@ export function SiteHeader() {
           {house ? (
             <Link
               href="/houses"
-              className="flex items-center gap-2 rounded-full border border-border/70 bg-secondary/60 px-2 py-1 text-xs text-muted-foreground transition-colors hover:text-foreground"
+              className="flex items-center gap-2 border border-border/50 px-2.5 py-1 text-xs text-muted-foreground transition-colors hover:border-accent/60 hover:text-foreground"
             >
               <Image
                 src={house.crest || "/placeholder.svg"}
                 alt={`Герб ${house.name}`}
-                width={22}
-                height={22}
-                className="size-5 rounded-full object-cover"
+                width={20}
+                height={20}
+                className="size-5 rounded-full object-cover opacity-90"
               />
               <span className="hidden sm:inline">{house.name}</span>
             </Link>
           ) : (
             <Link
               href="/sorting"
-              className="hidden rounded-full border border-accent/50 bg-accent/15 px-3 py-1.5 text-xs font-medium text-accent-foreground transition-colors hover:bg-accent/25 sm:inline-block"
+              className="hidden border border-border/50 px-3 py-1.5 text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:border-accent/60 hover:text-foreground sm:inline-block"
             >
-              Пройти распределение
+              Распределение
             </Link>
           )}
         </div>
       </div>
 
-      <nav className="flex items-center gap-1 overflow-x-auto border-t border-border/50 px-3 py-1.5 md:hidden">
+      <nav className="flex items-center gap-1 overflow-x-auto border-t border-border/40 px-3 py-1.5 md:hidden">
         {NAV_LINKS.map((link) => {
           const active = pathname === link.href
           return (
@@ -101,10 +94,10 @@ export function SiteHeader() {
               key={link.href}
               href={link.href}
               className={cn(
-                "shrink-0 rounded-md px-2.5 py-1.5 text-xs font-medium transition-colors",
+                "shrink-0 px-2.5 py-1.5 text-xs uppercase tracking-[0.1em] transition-colors",
                 active
-                  ? "bg-accent/20 text-accent-foreground"
-                  : "text-muted-foreground hover:bg-secondary hover:text-foreground",
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground",
               )}
             >
               {link.label}

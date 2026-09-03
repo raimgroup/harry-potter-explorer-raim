@@ -70,7 +70,7 @@ export default async function CharacterDetailPage({
       </Link>
 
       <div className="mb-10 flex flex-col gap-6 sm:flex-row">
-        <div className="relative mx-auto aspect-[3/4] w-56 shrink-0 overflow-hidden rounded-2xl border border-accent/30 shadow-xl sm:mx-0">
+        <div className="relative mx-auto aspect-[3/4] w-56 shrink-0 overflow-hidden border border-border/50 sm:mx-0">
           {character.image ? (
             <Image
               src={character.image || "/placeholder.svg"}

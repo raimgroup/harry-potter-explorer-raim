@@ -43,14 +43,14 @@ export default function CharactersPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
-      <div className="mb-10 text-center">
-        <p className="mb-3 font-serif text-xs uppercase tracking-[0.3em] text-muted-foreground">
+      <div className="mb-12 text-center">
+        <p className="mb-4 text-[11px] uppercase tracking-[0.4em] text-muted-foreground">
           Книга обитателей волшебного мира
         </p>
-        <h1 className="mb-4 text-balance font-serif text-3xl text-foreground sm:text-4xl">
+        <h1 className="mb-5 text-balance font-serif text-3xl font-light tracking-wide text-foreground sm:text-4xl">
           Каталог волшебников
         </h1>
-        <p className="mx-auto mb-8 max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
+        <p className="mx-auto mb-8 max-w-xl text-pretty text-sm font-light leading-relaxed text-muted-foreground sm:text-base">
           Произнеси имя, и движущиеся портреты откликнутся.
         </p>
         <SpellSearch value={query} onChange={handleQueryChange} />
@@ -67,7 +67,7 @@ export default function CharactersPage() {
           {Array.from({ length: PAGE_SIZE }).map((_, i) => (
             <div
               key={i}
-              className="aspect-[3/4] animate-pulse rounded-xl bg-card/60"
+              className="aspect-[3/4] animate-pulse border border-border/40 bg-card/30"
             />
           ))}
         </div>

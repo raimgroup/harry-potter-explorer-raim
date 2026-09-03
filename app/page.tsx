@@ -6,81 +6,72 @@ import { HomeHouseBadge } from "@/components/home-house-badge"
 export default function HomePage() {
   return (
     <div className="relative overflow-hidden">
-      <section className="relative flex min-h-[calc(100vh-3.5rem)] flex-col items-center justify-center px-4 py-20 text-center sm:px-6">
-        <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
-        </div>
-
-        <div className="relative mb-8 animate-flicker">
-          <div className="absolute inset-0 -z-10 scale-150 rounded-full bg-accent/25 blur-3xl" />
-          <Image
-            src="/images/sorting-hat-hero.png"
-            alt="Древняя Распределяющая шляпа, освещённая свечами"
-            width={280}
-            height={280}
-            priority
-            className="h-56 w-56 rounded-2xl object-cover shadow-2xl candle-glow sm:h-72 sm:w-72"
-          />
-        </div>
-
-        <p className="mb-3 animate-rise-in font-serif text-xs uppercase tracking-[0.3em] text-muted-foreground [animation-delay:0.05s]">
-          Хогвартс приветствует тебя
+      <section className="relative flex min-h-[calc(100vh-3.5rem)] flex-col items-center justify-center px-4 py-24 text-center sm:px-6">
+        <p className="mb-6 animate-rise-in text-[11px] uppercase tracking-[0.45em] text-muted-foreground [animation-delay:0.05s]">
+          HP Explorer
         </p>
-        <h1 className="mb-5 max-w-3xl animate-rise-in text-balance font-serif text-4xl leading-tight text-foreground text-shadow-ember [animation-delay:0.15s] sm:text-5xl md:text-6xl">
+        <h1 className="mb-6 max-w-2xl animate-rise-in text-balance font-serif text-4xl font-light leading-[1.15] tracking-wide text-foreground [animation-delay:0.15s] sm:text-5xl md:text-6xl">
           Распределяющая шляпа проводит тебя
         </h1>
-        <p className="mb-10 max-w-xl animate-rise-in text-pretty text-base leading-relaxed text-muted-foreground [animation-delay:0.25s] sm:text-lg">
-          Пройди древний обряд распределения, узнай свой факультет и отправляйся исследовать
-          волшебный мир — от портретов легендарных волшебников до писем, написанных совиной
-          почтой.
+        <p className="mb-12 max-w-md animate-rise-in text-pretty text-sm font-light leading-relaxed text-muted-foreground [animation-delay:0.25s] sm:text-base">
+          Пройди обряд распределения, узнай свой факультет и отправляйся исследовать волшебный
+          мир — от портретов легендарных волшебников до писем, написанных совиной почтой.
         </p>
 
-        <div className="flex animate-rise-in flex-col items-center gap-4 [animation-delay:0.35s] sm:flex-row">
-          <Link
-            href="/sorting"
-            className="rounded-full bg-accent px-8 py-3.5 font-serif text-sm uppercase tracking-wider text-accent-foreground shadow-lg shadow-accent/30 transition-transform hover:scale-105"
-          >
-            Пройти распределение
-          </Link>
-          <Link
-            href="/characters"
-            className="rounded-full border border-border/70 px-8 py-3.5 text-sm text-muted-foreground transition-colors hover:border-accent/60 hover:text-foreground"
-          >
-            Заглянуть в каталог волшебников
-          </Link>
-        </div>
+        <Link
+          href="/sorting"
+          className="group relative overflow-hidden border border-foreground/40 px-10 py-3.5 text-xs uppercase tracking-[0.3em] text-foreground transition-colors duration-300 hover:text-accent-foreground animate-rise-in [animation-delay:0.35s]"
+        >
+          <span
+            aria-hidden
+            className="absolute inset-0 -z-10 origin-bottom scale-y-0 bg-accent transition-transform duration-300 ease-out group-hover:scale-y-100"
+          />
+          Пройти распределение
+        </Link>
+
+        <Link
+          href="/characters"
+          className="mt-6 animate-rise-in text-xs uppercase tracking-[0.25em] text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline [animation-delay:0.45s]"
+        >
+          Каталог волшебников
+        </Link>
 
         <HomeHouseBadge />
       </section>
 
-      <section className="border-t border-border/60 bg-card/40 px-4 py-16 sm:px-6">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="mb-2 text-center font-serif text-2xl text-foreground sm:text-3xl">
+      <section className="border-t border-border/40 px-4 py-20 sm:px-6">
+        <div className="mx-auto max-w-4xl">
+          <p className="mb-3 text-center text-[11px] uppercase tracking-[0.35em] text-muted-foreground">
+            Хогвартс
+          </p>
+          <h2 className="mb-3 text-center font-serif text-2xl font-light text-foreground sm:text-3xl">
             Четыре факультета, четыре пути
           </h2>
-          <p className="mx-auto mb-10 max-w-xl text-center text-sm leading-relaxed text-muted-foreground sm:text-base">
+          <p className="mx-auto mb-14 max-w-lg text-center text-sm font-light leading-relaxed text-muted-foreground sm:text-base">
             Каждый факультет Хогвартса ценит свои добродетели. Пройди распределение, чтобы узнать,
             куда приведёт тебя шляпа.
           </p>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-px overflow-hidden border border-border/40 sm:grid-cols-4">
             {HOUSE_LIST.map((house, i) => (
               <Link
                 key={house.id}
                 href="/houses"
-                className="group flex animate-rise-in flex-col items-center gap-3 rounded-xl border border-border/60 bg-card/60 p-5 text-center transition-colors hover:border-accent/50"
-                style={{ animationDelay: `${0.1 * i}s` }}
+                className="group flex animate-rise-in flex-col items-center gap-3 bg-background/40 px-4 py-10 text-center transition-colors hover:bg-card/60"
+                style={{ animationDelay: `${0.08 * i}s` }}
               >
                 <Image
                   src={house.crest || "/placeholder.svg"}
                   alt={`Герб факультета ${house.name}`}
-                  width={72}
-                  height={72}
-                  className="size-16 rounded-full object-cover transition-transform group-hover:scale-110"
+                  width={56}
+                  height={56}
+                  className="size-12 rounded-full object-cover opacity-80 transition-opacity duration-300 group-hover:opacity-100"
                 />
-                <span className="font-serif text-sm text-foreground sm:text-base">
+                <span className="font-serif text-sm font-light tracking-wide text-foreground sm:text-base">
                   {house.name}
                 </span>
-                <span className="text-xs text-muted-foreground">{house.element}</span>
+                <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                  {house.element}
+                </span>
               </Link>
             ))}
           </div>

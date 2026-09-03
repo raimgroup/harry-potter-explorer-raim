@@ -12,23 +12,23 @@ export function BookPagination({
   if (totalPages <= 1) return null
 
   return (
-    <div className="mt-10 flex items-center justify-between gap-4 border-t border-border/50 pt-6">
+    <div className="mt-12 flex items-center justify-between gap-4 border-t border-border/40 pt-6">
       <button
         onClick={onPrev}
         disabled={page <= 1}
-        className="flex items-center gap-2 rounded-full border border-border/60 px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-accent/50 hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30"
+        className="flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30"
       >
         <span aria-hidden>←</span> Предыдущая глава
       </button>
 
-      <span className="font-serif text-sm text-muted-foreground">
+      <span className="font-serif text-sm font-light text-muted-foreground">
         Страница {page} из {totalPages}
       </span>
 
       <button
         onClick={onNext}
         disabled={page >= totalPages}
-        className="flex items-center gap-2 rounded-full border border-border/60 px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-accent/50 hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30"
+        className="flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30"
       >
         Следующая глава <span aria-hidden>→</span>
       </button>
